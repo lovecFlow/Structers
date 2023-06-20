@@ -1,0 +1,20 @@
+========================================================================
+type UserCreateRequest struct {
+	FirstName string
+	Age       int
+} //Структура 
+
+
+var InvalidRequest = "invalid request" //Ошибка 
+
+func Validate(req UserCreateRequest) string { //Функция с условной кострукцией 
+	if req.FirstName == "" || strings.Contains(req.FirstName, " ") { //Проверка на содержание пробелов и пустой строки в FirstName 
+		return InvalidRequest 
+	} 
+	
+	if req.Age > 150 || req.Age <= 0 { Проверка Age 
+		return InvalidRequest
+	}
+	return "" //Результат в случае корректного запроса 
+}
+===========================================================================
